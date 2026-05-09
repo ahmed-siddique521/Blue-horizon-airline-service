@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login | BlueHorizon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <img src="logo2.png" alt="" class="logo-img">
+            <a class="navbar-brand fw-bold" href="#">BlueHorizon Air Services</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="searchflight.html">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link " href="login.html" id="loginNav">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html" id="registerNav">Register</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LOGIN SECTION -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+
+                    <div class="auth-card">
+                        <h3 class="text-center mb-4">Admin Login</h3>
+
+                        <form onsubmit="return adminLogin()">
+                            <div class="mb-3">
+                                <label>Username</label>
+                                <input type="text" id="adminUser" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Password</label>
+                                <input type="password" id="adminPass" class="form-control" required>
+                            </div>
+
+                            <p id="errorMsg" class="text-danger text-center"></p>
+
+                            <button class="btn btn-primary w-100">Login</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3">
+        <p class="mb-0">© 2025 BlueHorizon Air Services | Database Project</p>
+    </footer>
+
+
+    <script src="admin-login.js"></script>
+
+</body>
+
+</html>

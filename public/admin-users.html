@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users | BlueHorizon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <img src="logo2.png" alt="" class="logo-img">
+            <a class="navbar-brand fw-bold" href="#">BlueHorizon Air Services</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Admin Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin-users.html">Manage Users</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-notifications.html">Notifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="adminLogout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- USER MANAGEMENT SECTION -->
+    <section class="user-management">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2><i class="bi bi-people me-2"></i>Manage Users</h2>
+                <a href="admin-dashboard.html" class="back-btn">
+                    <i class="bi bi-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+
+            <!-- Search and Actions -->
+            <div class="search-section">
+                <div class="search-box">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control"
+                            placeholder="Search by name or email...">
+                        <button class="btn btn-primary" onclick="searchUsers()">
+                            <i class="bi bi-search me-2"></i> Search
+                        </button>
+                    </div>
+                </div>
+                <button class="add-user-btn" onclick="showAddForm()">
+                    <i class="bi bi-person-plus"></i> Add New User
+                </button>
+            </div>
+
+            <!-- Add User Form (Initially Hidden) -->
+            <div id="addUserForm" class="add-form-container" style="display: none;">
+                <div class="add-form-header">
+                    <h4><i class="bi bi-person-plus me-2"></i>Add New User</h4>
+                    <button class="close-btn" onclick="hideAddForm()">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="add-form-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="addFirstName" class="form-control" placeholder="Enter first name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="addLastName" class="form-control" placeholder="Enter last name"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="addEmail" class="form-control" placeholder="Enter email address"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password *</label>
+                            <input type="password" id="addPassword" class="form-control" placeholder="Enter password"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-cancel" onclick="hideAddForm()">
+                            <i class="bi bi-x me-2"></i> Cancel
+                        </button>
+                        <button class="btn btn-save" onclick="addUser()">
+                            <i class="bi bi-check me-2"></i> Add User
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit User Form (Initially Hidden) -->
+            <div id="editUserForm" class="edit-form-container" style="display: none;">
+                <div class="edit-form-header">
+                    <h4><i class="bi bi-pencil me-2"></i>Edit User</h4>
+                    <button class="close-btn" onclick="cancelEdit()">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="edit-form-body">
+                    <input type="hidden" id="editUserId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="editFirstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="editLastName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="editEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="editStatus" class="form-control">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-cancel" onclick="cancelEdit()">
+                            <i class="bi bi-x me-2"></i> Cancel
+                        </button>
+                        <button class="btn btn-save" onclick="saveUser()">
+                            <i class="bi bi-check me-2"></i> Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingSpinner" class="loading-state" style="display: none;">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Loading users...</p>
+            </div>
+
+            <!-- Users Table -->
+            <div id="usersTable" class="users-table-container" style="display: none;">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Users will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State -->
+            <div id="noUsersMessage" class="empty-state" style="display: none;">
+                <i class="bi bi-people"></i>
+                <h4>No Users Found</h4>
+                <p>There are no users in the system yet.</p>
+                <button class="add-user-btn" onclick="showAddForm()">
+                    <i class="bi bi-person-plus"></i> Add First User
+                </button>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorMessage" class="error-state" style="display: none;">
+                <i class="bi bi-exclamation-triangle"></i>
+                <h4>Error Loading Users</h4>
+                <p id="errorText">Failed to load users. Please try again.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Delete Confirmation Dialog -->
+    <div id="confirmationDialog" class="confirmation-dialog">
+        <div class="confirmation-box">
+            <div class="confirmation-header">
+                <i class="bi bi-exclamation-triangle"></i>
+                <h4>Confirm Delete</h4>
+                <button class="close-btn" onclick="hideConfirmation()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="confirmation-body">
+                <p>Are you sure you want to delete this user? This action cannot be undone.</p>
+                <input type="hidden" id="deleteUserId">
+            </div>
+            <div class="confirmation-actions">
+                <button class="btn btn-cancel" onclick="hideConfirmation()">
+                    <i class="bi bi-x me-2"></i> Cancel
+                </button>
+                <button class="btn btn-delete-confirm" onclick="confirmDelete()">
+                    <i class="bi bi-trash me-2"></i> Delete User
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message" style="display: none;">
+        <i class="bi bi-check-circle"></i>
+        <span id="successText">Operation completed successfully!</span>
+        <button class="close-btn" onclick="hideSuccess()">
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3">
+        <p class="mb-0">© 2025 BlueHorizon Air Services | Database Project</p>
+    </footer>
+
+    <script>
+        // Check admin authentication
+        if (localStorage.getItem("isAdmin") !== "true") {
+            window.location.href = "admin-login.html";
+        }
+
+        function adminLogout() {
+            localStorage.removeItem("isAdmin");
+            window.location.href = "admin-login.html";
+        }
+    </script>
+    <script src="admin-users.js"></script>
+
+</body>
+
+</html>

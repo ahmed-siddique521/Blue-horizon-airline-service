@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Notifications | BlueHorizon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add some custom styling for better notification display */
+        .notification-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid #007bff;
+        }
+
+        .notification-item:hover {
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .notification-item.new {
+            border-left-color: #dc3545;
+            background-color: #fff3cd;
+        }
+
+        .notification-type {
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <img src="logo2.png" alt="" class="logo-img">
+            <a class="navbar-brand fw-bold" href="#">BlueHorizon Air Services</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="searchflight.html">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html" id="loginNav">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html" id="registerNav">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-login.html">Admin Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="adminLogout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NOTIFICATIONS -->
+    <section class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">System Notifications</h2>
+            <button class="btn btn-outline-primary btn-sm" onclick="refreshNotifications()">
+                Refresh
+            </button>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-header bg-light">
+                <div class="row">
+                    <div class="col-md-6"><strong>Notification</strong></div>
+                    <div class="col-md-3"><strong>Type</strong></div>
+                    <div class="col-md-3"><strong>Time</strong></div>
+                </div>
+            </div>
+            <div class="list-group list-group-flush" id="notificationList">
+                <!-- Notifications will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <a href="admin-dashboard.html" class="btn btn-primary">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3 bg-light mt-5">
+        <p class="mb-0">© 2025 BlueHorizon Air Services | Database Project</p>
+    </footer>
+
+    <script>
+        // Admin authentication check
+        if (localStorage.getItem("isAdmin") !== "true") {
+            window.location.href = "admin-login.html";
+        }
+
+        function adminLogout() {
+            localStorage.removeItem("isAdmin");
+            window.location.href = "admin-login.html";
+        }
+
+        function refreshNotifications() {
+            location.reload();
+        }
+    </script>
+
+    <script src="admin-notification.js"></script>
+</body>
+
+</html>

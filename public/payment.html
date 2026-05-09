@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- REQUIRED -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Payment</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <img src="logo2.png" alt="" class="logo-img">
+            <a class="navbar-brand fw-bold" href="#">BlueHorizon Air Services</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="searchflight.html">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-login.html">Admin Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAYMENT SECTION -->
+    <section class="container my-5">
+        <h3 class="mb-4">Payment Details</h3>
+
+        <div class="row">
+
+            <!-- FLIGHT SUMMARY -->
+            <div class="col-md-5 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Booking Summary</h5>
+
+                        <p><strong>Flight:</strong> <span id="payFlightNumber"></span></p>
+                        <p><strong>Route:</strong> <span id="payRoute"></span></p>
+                        <p><strong>Date:</strong> <span id="payDate"></span></p>
+                        <p><strong>Passenger:</strong> 1 Adult</p>
+                        <hr>
+                        <h5>
+                            Total Amount:
+                            <span class="text-primary">
+                                PKR <span id="payPrice"></span>
+                            </span>
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAYMENT FORM -->
+            <div class="col-md-7">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Enter Payment Information</h5>
+
+                        <form>
+
+                            <div class="mb-3">
+                                <label class="form-label">Cardholder Name</label>
+                                <input type="text" class="form-control" placeholder="Enter name on card">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Card Number</label>
+                                <input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="month" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" class="form-control" placeholder="***">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Payment Method</label>
+                                <select class="form-select">
+                                    <option selected>Select Method</option>
+                                    <option>Credit Card</option>
+                                    <option>Debit Card</option>
+                                    <option>JazzCash</option>
+                                    <option>EasyPaisa</option>
+                                </select>
+                            </div>
+
+                            <div class="text-end">
+                                <button type="button" class="btn btn-success" onclick="confirmPaymentWithRetry()">
+                                    Confirm Payment
+                                </button>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="mb-0">© 2025 BlueHorizon Air Services</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="payment.js"></script>
+
+</body>
+
+</html>

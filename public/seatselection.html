@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seat Selection</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <img src="logo2.png" alt="Logo" class="logo-img">
+            <a class="navbar-brand fw-bold ms-2" href="index.html">BlueHorizon Air Services</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="searchflight.html">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html">My Bookings</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SEAT SELECTION -->
+    <section class="container my-5">
+
+        <h3 class="text-center mb-4">Select Your Seat</h3>
+
+        <!-- FLIGHT INFO -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <p><strong>Flight:</strong> <span id="seatFlightNumber"></span></p>
+                <p><strong>Route:</strong> <span id="seatRoute"></span></p>
+                <p><strong>Date:</strong> <span id="seatDate"></span></p>
+            </div>
+        </div>
+
+
+        <!-- SELECTED SEAT -->
+        <div class="alert alert-info text-center">
+            Selected Seat: <strong id="selectedSeat">None</strong>
+        </div>
+
+        <!-- SEAT MAP -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+
+                <h5 class="mb-3">Available Seats</h5>
+
+                <div class="row text-center g-2">
+
+                    <!-- Row 1 -->
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('1A')">1A</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('1B')">1B</button></div>
+                    <div class="col-2"><button class="btn btn-outline-secondary w-100" disabled>1C</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('1D')">1D</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('1E')">1E</button></div>
+
+                    <!-- Row 2 -->
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('2A')">2A</button></div>
+                    <div class="col-2"><button class="btn btn-outline-secondary w-100" disabled>2B</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('2C')">2C</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('2D')">2D</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('2E')">2E</button></div>
+
+                    <!-- Row 3 -->
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('3A')">3A</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('3B')">3B</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('3C')">3C</button></div>
+                    <div class="col-2"><button class="btn btn-outline-secondary w-100" disabled>3D</button></div>
+                    <div class="col-2"><button class="btn btn-outline-primary w-100 seat-btn"
+                            onclick="selectSeat('3E')">3E</button></div>
+
+                </div>
+
+                <div class="mt-4">
+                    <span class="badge bg-primary">Available</span>
+                    <span class="badge bg-secondary ms-2">Booked</span>
+                    <span class="badge bg-success ms-2">Selected</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ACTION -->
+        <div class="text-end">
+            <button class="btn btn-primary" onclick="proceedToPayment()">
+                Proceed to Payment
+            </button>
+        </div>
+
+    </section>
+
+    <footer class="footer text-center">
+        <p>© 2025 Flight Booking System</p>
+    </footer>
+
+
+
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <script src="seatselection.js"></script>
+
+</body>
+
+</html>

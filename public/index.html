@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> BlueHorizon Air Services</title>
+    <link rel="icon" type="image/png" href="ChatGPT Image Dec 30, 2025, 06_00_56 AM.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <img src="logo2.png" alt="" class="logo-img">
+            <a class="navbar-brand fw-bold" href="index.html">BlueHorizon Air Services</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="searchflight.html">Flights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookings.html">Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookinghistory.html">Booking History</a>
+                    </li>
+                    <!-- Dynamic login/logout buttons -->
+                    <li class="nav-item" id="loginNav">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="registerNav">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <!-- Logout button will be inserted here by JavaScript -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-login.html">Admin Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero text-center">
+        <div class="container">
+            <h1>Fly Beyond Limits</h1>
+            <p>Your journey begins with BlueHorizon Air Services</p>
+            <a href="#features" class="btn btn-outline-primary px-4 py-2" type="button">Explore More</a>
+        </div>
+    </section>
+
+    <!-- SEARCH SECTION -->
+    <section class="container search-card">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-center mb-4">Search Flights</h4>
+
+                <form id="searchForm" class="row g-3">
+
+                    <div class="col-md-4">
+                        <label class="form-label">From</label>
+                        <input type="text" id="departureCity" class="form-control" placeholder="DepartureCity" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">To</label>
+                        <input type="text" id="destinationCity" class="form-control" placeholder="DestinationCity"
+                            required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-1 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">Search</button>
+                    </div>
+
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-5 bg-light" id="features">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4">Why Choose BlueHorizon?</h3>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5>Fast Booking</h5>
+                            <p>Book flights in seconds with a simple interface.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5>Secure Payments</h5>
+                            <p>Safe and encrypted transactions every time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5>Reliable Service</h5>
+                            <p>Trusted airline operations and support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h3 class="fw-bold">About BlueHorizon</h3>
+
+                    <p>
+                        BlueHorizon Air Services is a comprehensive airline reservation and
+                        management platform designed to simplify the process of searching,
+                        booking, and managing flights. The system provides users with a
+                        seamless digital experience by integrating flight schedules,
+                        seat availability, and booking management into a single unified
+                        platform.
+                    </p>
+
+                    <p>
+                        The website focuses on delivering fast and secure transactions while
+                        maintaining data accuracy and reliability through a well-structured
+                        backend and database system. BlueHorizon ensures that passenger
+                        information, flight details, and booking records are efficiently
+                        stored, retrieved, and managed.
+                    </p>
+
+                    <p>
+                        Built as an academic and practical project, BlueHorizon demonstrates
+                        the implementation of modern web technologies alongside database
+                        normalization principles. The platform emphasizes system efficiency,
+                        data integrity, and user-friendly interaction, making it suitable
+                        for real-world airline operations and scalable future enhancements.
+                    </p>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <img src="Overlogo.png" class="img-fluid about-img" alt="Airplane">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="destinations py-5 bg-light">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4">Popular Destinations</h3>
+
+            <div class="row">
+                <!-- Karachi -->
+                <div class="col-md-3 mb-4">
+                    <div class="destination-card">
+                        <img src="Karachi.jpg" alt="Karachi" class="destination-img">
+                        <h5>Karachi</h5>
+                        <p>
+                            Karachi is Pakistan’s largest city and a major economic hub,
+                            offering domestic and international flight connections with
+                            modern airport facilities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lahore -->
+                <div class="col-md-3 mb-4">
+                    <div class="destination-card">
+                        <img src="Lahore.jpg" alt="Lahore" class="destination-img">
+                        <h5>Lahore</h5>
+                        <p>
+                            Lahore is known for its rich culture and history, attracting
+                            travelers for business, tourism, and education with frequent
+                            flight availability.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Islamabad -->
+                <div class="col-md-3 mb-4">
+                    <div class="destination-card">
+                        <img src="islamabad.jpg" alt="Islamabad" class="destination-img">
+                        <h5>Islamabad</h5>
+                        <p>
+                            Islamabad, the capital city, offers a calm travel experience
+                            with a modern international airport and direct access to major
+                            destinations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sialkot -->
+                <div class="col-md-3 mb-4">
+                    <div class="destination-card">
+                        <img src="peshawar.jpg" alt="Sialkot" class="destination-img">
+                        <h5>Peshawar</h5>
+                        <p>
+                            Peshawar is a growing industrial city with increasing air travel
+                            demand, connecting exporters and passengers to key national
+                            routes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta-section py-5 text-center">
+        <div class="container">
+            <h3 class="fw-bold">Ready to Fly?</h3>
+            <p>Join BlueHorizon and experience smooth air travel today.</p>
+            <a href="register.html" class="btn btn-primary px-4 py-2">Get Started</a>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="text-center py-3">
+        <p class="mb-0">© 2025 BlueHorizon Air Services | Database Project</p>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Your scripts -->
+    <script src="searchflight.js"></script>
+    <script src="login.js"></script>
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>
